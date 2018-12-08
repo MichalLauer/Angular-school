@@ -1,0 +1,44 @@
+main{
+    background: red;
+    height: 100vh !important;    
+}
+
+button{
+    position: absolute;
+    left: 12px;
+    top:12px;
+}
+.hiding{
+    box-shadow: none !important;
+}
+.dropdown{
+    list-style-type: none;
+    margin: 10px 10px;
+}
+.dropdown a{
+    font-size: 18px;
+}
+.dropdown-menu.show{
+    top: 0 !important;
+    position: relative !important;
+    box-shadow: none;
+}
+a{
+    color: #009688 !important;
+    cursor: pointer;
+}
+a::after{
+    content: none;
+}
+@media (min-width: 992px) { 
+
+    main{
+        background:yellow;
+        transform: translateX(240px) !important;
+    }
+
+    nav {
+        transform: translateX(0px) !important;
+        width: 240px !important;
+    }
+ }
