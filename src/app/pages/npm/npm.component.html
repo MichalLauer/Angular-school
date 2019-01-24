@@ -1,0 +1,31 @@
+<h1>Nejjednoduší práce s Angularem</h1>
+<p>Pokud chceme co nejefektivnějí a nejjeddouše vyvýjet webové aplikace v Angularu, je třeba si nainstalovat
+  <a href="https://www.npmjs.com/">Node Package Manager (NPM)</a> a <a href="https://cli.angular.io/">Angular CLI</a>. V této kapitole si přiblížíme co je co a ukážeme základní příkazy.
+</p>
+<h2>Správce balíčků</h2>
+<p>NPM je správce balíčků. Přes něj dokážete pomocí jednoho příkazu nainstalovat mnoho užitečných a nesmyslných
+  rozšíření pro Vaše potřeby.
+  Po nainstalovaní se budeme pohybovat čistě v konzoli. Níže je krátký seznam příkazů, které by se mohli hodit.
+</p>
+<ul>
+  <li><strong>npm install XXX</strong> - nainstaluje požadovaný package (po přidání -g se nainstaluje do celého pc)</li>
+  <li><strong>npm update</strong> - aktualizuje všechny baličky</li>
+  <li><strong>npm list</strong> - zobrazí list všech nainstalovaných balíčků</li>
+</ul>
+<hr>
+<h2>Všechno o tom CLI</h2>
+<p>Pokud máme nainstalovaný NPM, je na čase se pustit do práce s Angularem. Na to použijeme následující příkaz:</p>
+<code>npm install -g @angular/cli</code>
+<p>Po nainstalování je práce s konzolí velice snadná, a nemusíme se starat o složitější operace a vkládání importů do
+  .ts souborů.
+  Níže najdete podrobnější seznam všech důležitých příkazů.</p>
+<code>
+  <dl>
+    <dt>ng new project-name</dt>
+    <dl>&nbsp;Založí nový Angluar projekt, se kterým je možné hned pracovat a developerovat.</dl>
+    <dt>ng generate component componentName</dt>
+    <dl>&nbsp;CLI nám vygeneruje nový komponent a obstará za nás všechny závislosti a importy.</dl>
+    <dt>ng serve -o</dt>
+    <dl>&nbsp;Tento příkaz nám založí lokální server (localhost:4200), na kterém pobeží naše stránka. Parametr -o nám rovnou otevře stránku v prohlížeči.</dl>
+  </dl>
+</code>

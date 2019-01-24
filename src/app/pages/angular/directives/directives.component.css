@@ -1,0 +1,14 @@
+#ng-template section,
+#ng-template code{
+    display: block;
+    width: 50%;
+    height: 80px;
+    border: 1px solid black;
+    text-align: center;
+}
+.big{
+    font-size: 44px;
+}
+.small{
+    font-size: 4px;
+}

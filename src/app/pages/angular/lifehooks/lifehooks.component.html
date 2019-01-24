@@ -1,0 +1,50 @@
+<div id="body">
+  <h1>Životní cyklus Angularu</h1>
+  <p>Tato část bude hodně teoretická, ale rozhodně neméně podstatná. Angular má tzn. lifehooks - metody, které se
+    spustí
+    při
+    určitě části "života" Angularu. My si je teď ve zkratce všechny představíme. U každého názvu bude klíčová věta, kdy
+    se metoda spustí.
+  </p>
+  <code>
+    Pokud chceme metodu použít, musíme jí importovat (bez předpony ng) z '@angular/core' a implementovat v názvu třídy.
+  </code>
+  <div id="content">
+    <h2>ngOnChanges()</h2>
+    <ul>
+      <li>Pouze pří změně @Input</li>
+    </ul>
+    <h2>ngOnInit()</h2>
+    <ul>
+      <li>Pouze jednou</li>
+      <li>Inicializuje data v komponentu</li>
+    </ul>
+    <h2>ngDoCheck()</h2>
+    <ul>
+      <li>Když se detekuje aktualizace nebo změna dat</li>
+    </ul>
+    <h2>ngAfterContentInit()</h2>
+    <ul>
+      <li>Pouze jednou</li>
+      <li>Pouze po prvním spuštění ngDoCheck()</li>
+    </ul>
+    <h2>ngAfterContentChecked()</h2>
+    <ul>
+      <li>Po každém zavolání ngDoCheck()</li>
+    </ul>
+    <h2>ngAfterViewInit()</h2>
+    <ul>
+      <li>Pouze jednou</li>
+      <li>Hned po tom, co Angular inicializuje všechny komponenty</li>
+    </ul>
+    <h2>ngAfterViewChecked()</h2>
+    <ul>
+      <li>Poprvé zavolán po ngAFterViewInit()</li>
+      <li>Následně po každém ngAfterContentChecked()</li>
+    </ul>
+    <h2>ngOnDestroy()</h2>
+    <ul>
+      <li>Po odstranění komponentu z DOMu</li>
+    </ul>
+  </div>
+</div>

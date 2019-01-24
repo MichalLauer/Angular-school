@@ -1,0 +1,10 @@
+<h2>Konečná produkce aplikace!</h2>
+<p>Pokud chceme svojí aplikací předat světu, nejlepší je použít Angular CLI příkaz</p>
+<code>
+    ng build --prod --aot <br> 
+    --prod připravý aplikaci na produkci<br>
+    --aot se postará o nejlepší optimalizaci<br>
+</code>
+<p>Následně stačí výslednou složku <em>./dist</em> uploadnout na server. Jedniný trik, na který je potřeba si dávat pozor - 
+jelikož většina serverů při 404PageNotFound erroru vrátí index.html soubor, je nutné ručně nastavit stránku, která se bude v tomto případě vracet.
+Většinou lze nastavit přímo na stránce hostingu.</p>

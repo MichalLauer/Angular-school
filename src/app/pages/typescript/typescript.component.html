@@ -1,0 +1,123 @@
+<h1>Co to vlastně je, ten tajpskript?</h1>
+<p>
+  Jedná se o open-source programovací jazyk od Microsoftu, který je nadstavbou jazyka JavaScript a rozšiřuje ho
+  především o statické typování, třídy, rozhraní a další OOP atributy.
+  Využívá se zejména tehdy, pokud máme v aplikaci nadmíru JavaScript kódu.
+  Pro jeho běh je třeba instalovat node.js, který nám zpřístupní npm(node packet manager), přes který se instalují JS
+  knihovny včetně TypeScriptu.
+</p>
+<h2>Kompilace kódu</h2>
+<p>Použili jsme rozšíření .ts, ale tento kód je jen JavaScript a tudíž je možné importovat/exportovat přímo do
+  JavaScript kódu. Samozřejmě jazyky nejsou identické, je tedy potřeba transpiler. Transpiler je druh kompilátoru,
+  který čte jeden jazyk a přepisuje ho do druhého. </p>
+<div id="compilation">
+  <h2>Datová anotace, aneb datové typy</h2>
+  <p id="comp-text">
+    Na rozdíl od JavaScriptu je TypeScript rozšířen o statické typování a jedná se o lightweight typovou anotaci.
+    TypeScript nám sice dovolí dynamické typování ale zdrojový kód pak nebude možné automaticky kontrolovat!
+    Další výhodou je, že TypeScript nás v případě nějaké chyby upozorní dříve, než dojde ke kompilaci. Níže zkuste
+    otestovat své znalosti :)
+  </p>
+  <div id="data-types">
+    <p>Základní datvé typy jsou:</p>
+    <ul>
+      <li> <em>Boolean</em> (ano, ne)</li>
+      <li> <em>Čísla</em> (int, double, float...)</li>
+      <li> <em>String</em></li>
+      <li> <em>Any</em> (nedefinováno)</li>
+    </ul>
+  </div>
+  <code id="js">
+    function green(color) &#123; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return "Barva je: " + color;<br>
+    &#125;<br>
+  </code>
+  <code id="ts">
+    function green(color<strong>: string</strong>) &#123;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return "Barva je: " + color;<br>
+    &#125;<br>
+  </code>
+</div>
+
+<div class="center-section">
+  <h2>Konstruktor</h2>
+  <p>Je metoda, která se volá při vytvoření instance třídy a nastavuje vnitřní stav objektu.
+    Pro přístup k atributům, metodám dané instance požijeme klíčové slovo this.
+  </p>
+  <code>
+    class Trida&#123;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;x: number;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;constructor(x_in: number) &#123;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.x=x_in;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&#125; <br>
+    <em>...</em><br>
+    let promena = new Trida(1); <br>
+    console.log(promena.x); //konzole vypíše hodnotu, x tedy 1<br>
+  </code>
+</div>
+
+<div class="center-section">
+  <h2>Modifikátory přístupu</h2>
+  <p>Určují dostupnost atributů nebo metod třídy.</p>
+  <code>
+    class Trida &#123;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;public a; //umožňuje přístup z vnějšku třídy<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;private b; //neumožňuje přístup k atributu z vně třídy<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;protected c; //umožňuje přístup k atributu ze tříd které dědí z dané třídy<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;readonley d; //tyto atributy lze nastavit pouze při jejich deklaraci nebo konstrukci<br>
+    &#125;<br>
+  </code>
+</div>
+
+<div class="center-section">
+  <h2>Dědičnost</h2>
+  <p>Abychom mohli dědit z nějaké třídy, použijeme klíčové slovo extended.
+    Třída, která dědí, zdědí všechny atributy a metody, ke kterým má přístup z třídy z které dědí.
+    Jednou z výhod je, že nám editor napoví, pokud tuto funkci má, které údaje máme zadávat a pokud zadáváme údaje
+    nesprávně, tak nás na chybu upozorní. </p>
+  <code>
+    class Zvire&#123;/*…nějaký kód…*/&#125;<br>
+    <em>...</em><br>
+    class Opice extended Zvire&#123;/*…nějaký kód…*/&#125; //třída Opice dědí dostupný kód ze třídy Zvíře<br>
+  </code>
+</div>
+
+<div id="interface" class="center-section">
+  <h2>Interface</h2>
+  <p>Interface, nebo-li rozhraní je ustanovení v programu, které říká, že proměnná bude obsahovat data nebo metody v
+    požadovaném tvaru.</p>
+  <code>
+    interface Produkt &#123;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;jmeno: string;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;popis: string;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;cena: number;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;skladem: boolean;<br>
+    &#125;
+  </code>
+  <p>Pokud bychom chtěli interface implementovat do proměnné, postupovali bychom takto:</p>
+  <code>
+    interface Produkt &#123;jmeno: string; popis: string; cena: number; skladem: boolean;&#125;<br>
+    <em>...</em><br>
+    const plysak: Produkt &#123;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;jmeno: 'Plyšový medvěd',<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;popis: 5;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;cena: 223;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;skladem: false;<br>
+    &#125;
+  </code>
+  <p>Dále můžeme interface použít jako datový typ při definici funkce</p>
+  <code>
+    function Funkce(vstupFunkce: Produkt): void &#123;…nějaký kód…&#125;<br>
+  </code>
+  <p>A nakonec si implementaci ukážeme přímo do třídy</p>
+  <code>
+    interface Produkt &#123;jmeno: string; popis: string; cena: number; skladem: boolean;&#125;<br>
+    <em>...</em><br>
+    class Eshop implements Produkt &#123;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;jmeno: string;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;popis: string;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;cena: number;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;skladem: boolean;<br>
+    &#125;
+  </code>
+</div>

@@ -1,0 +1,67 @@
+<h1>Dekorátory</h1>
+<p>Dekorátory slouží k upravení třídy. Mohou se do nich ukládat jak metada, tak se
+  dají použít jako vstupní a výstupní metody ke komponentu. Dekorovat komponent můžeme
+  mnoha způsoby a patří to spíše k pokročilejšímu vědění, proto se naučíme "pouze" posílání
+  dat, vystřelování eventů a reagovaní na eventy
+</p>
+<h2>@Input</h2>
+<p>@Input nám umožní dat komponentu "vlastnosti", které můžeme poté z venku nastavit -
+  Podobně jako bychom nastavili např. src u obrázku. V komponentu poté lze nastavit
+  alias dané proměnné.
+</p>
+<div class="splitscreen multishow">
+  <section>
+    <input id="input-var" type="text" [(ngModel)]="this.inputVarHolder">
+    <label for="input-var">Input pro proměnnou</label>
+    <input id="input-alias" type="text" [(ngModel)]="this.inputAliasHolder">
+    <label for="input-alias">Input pro alias</label>
+    <app-input [inputVar]="this.inputVarHolder" [aliasInput]="this.inputAliasHolder"></app-input>
+  </section>
+  <code>
+    &#60;input id="input-var" type="text" [(ngModel)]="this.inputVarHolder"&#62;<br>
+    &#60;input id="input-alias" type="text" [(ngModel)]="this.inputAliasHolder"&#62;<br>
+    <em>Zavolání komponentu</em><br>
+    &#60;app-input [inputVar]="this.inputVarHolder" [aliasInput]="this.inputAliasHolder"&#62;&#60;/app-input&#62;<br>
+    <em>Input v komponentu</em><br>
+    @Input() inputVar: String;<br>
+    @Input('aliasInput') aliasVarString: String;<br>
+  </code>
+</div>
+<h2>@Output</h2>
+<p>Díky tomuto dekorátoru můžeme odesílat data z komponentu. Při reagování na vlastní událost
+  můžeme zase použít název objektu, nebo alias. Zároveň pomocí $event můžeme z komponentu
+  převzít data, která nám poslal.
+</p>
+<div class="splitscreen multishow">
+  <section>
+    <app-output (var)="reactOnVar()" (alias)="reactOnAlias($event)"></app-output>
+  </section>
+  <code>
+    @Output() var = new EventEmitter&#60;String&#62;();<br>
+    this.outputVar.emit(this.value);<br>
+    <em>...</em><br>
+    @Output('alias') outputVar = new EventEmitter&#60;String&#62;();<br>
+    this.var.emit(this.value);<br>
+    <em>...</em><br>
+    &#60;app-output (var)="reactOnVar()" (alias)="reactOnAlias($event)"&#62;&#60;/app-output&#62;
+  </code>
+</div>
+<h2>@HostListener</h2>
+<p>Tento dekorátor nám umožní reagoat na vnější události uvnitř Typescript souboru.
+  Jednoduše zaaliasujeme název eventu a objektu přiřadíme metodu.
+</p>
+<div class="splitscreen">
+  <section>
+    <app-listener></app-listener>
+  </section>
+  <code>
+    @HostListener('mouseover') onHover() &#123;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('text').style.color = 'red';<br>
+    &#125;<br>
+    @HostListener('mouseout') onOut() &#123;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('text').style.color = 'black';<br>
+    &#125;<br>
+    <em>...</em><br>
+    &#60;app-listener&#62;&#60;/app-listener&#62;<br>
+  </code>
+</div>

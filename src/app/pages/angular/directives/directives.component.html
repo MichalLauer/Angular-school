@@ -1,0 +1,132 @@
+<h1>Základní a nejpraktičtější dekorátory</h1>
+<p>Dekorátory jsou speciální Angular komponenty, které nám pomáhají se
+  stylováním, strukturou a zobrazovaním HTML prvků. Dekorátorů je mnoho, ale v
+  této sekci si představíme jen ty nejzákladnější. V HTML souboru se píší
+  buď v hranatých závorkách ( [direktiva] ) nemění strukturu souboru. Pokud ovšem
+  strukturu mění, pak se píší s hvězdičkou ( *direktiva ). Existují i případy, kdy se
+  dají použít jako HTML prvek ( &#60;direktiva&#62;&#60;/direktiva&#62; )
+</p>
+<h2>ngTemplate</h2>
+<p>ngTemplate je direktiva, která označí kus kódu. Obsah se defaultně nezobrazí,
+  ale jde jej podmínečtě zobrazit (ngIf, ngElse...). Označíme jí pomocí #name
+</p>
+<div id="ng-template" class="splitscreen">
+  <section>
+    <ng-template #lulik>
+      <p>Toto nevidíš, co?</p>
+    </ng-template>
+  </section>
+  <code>
+    &#60;ng-template #lulik&#62;&#60;p&#62;Toto nevidíš, co?&#60;/p&#62;&#60;/ng-template&#62;
+  </code>
+</div>
+<h2>*ngIf; else</h2>
+<p>Tato jednoduchá struktura nám umožní zobrazit určitou část kódu, pokud je
+  podmínka true. Pokud je false, je možné zobrazit kód v ng-template
+</p>
+<div class="splitscreen">
+  <section>
+    <input type="text" [(ngModel)]="this.ngIfVar">
+    <p *ngIf="this.ngIfVar == 'true';else ngFalse"> Good job! Vstup je true</p>
+    <ng-template #ngFalse>
+      <p>Vstup rozhodne neni true</p>
+    </ng-template>
+  </section>
+  <code>
+    &#60;input&#62; type="text" [(ngModel)]="this.ngIfVar"&#62;<br>
+    &#60;p&#62; *ngIf="this.ngIfVar == 'true';else ngFalse"&#62; Good job! Vstup je true&#60;/p&#62;<br>
+    &#60;ng-template #ngFalse&#62;&#60;p&#62;Vstup rozhodne neni true&#60;/p&#62;&#60;/ng-template&#62;<br>
+  </code>
+</div>
+<!--
+<h2>*ngFor</h2>
+<p>Tento cyklus funguje jako Foreach v mnoha programovacích jazycích. Cyklus projede celou sbírku, a uloží
+  jí do proměnné. Syntaxe vypadá takto: "let prvek in sbirka;let i = index". Index je klíčové slovo, které
+  nám vrátí index aktuálního cyklu. Tento parametr <strong>není</strong> povinný.
+</p>
+<div class="splitscreen">
+  <section>
+    <input type="number" ([ngModel])="this.ngForCount">
+    <button (click)="ngForClick()">Klikni, a tolikrát ti ukážu dnešní datum z mojí sbírky!</button>
+    <div *ngFor="let date in this.dates">
+        <p >s</p>
+    </div>
+  </section>
+  <code>
+  </code>
+</div>
+-->
+<h2>ngClass</h2>
+<p>Direktiva ngClass prvku přiřadí třídu, pokud je podmínka true. Syntaxí je objekt, kde první prvek je
+  název třídy v uvozovkách a za dvojtečkou je podmínka. Více tříd lze oddělit čárkou.
+</p>
+<div class="splitscreen">
+  <section id="ngClass-section">
+    <input id="ngClass-input" type="text" [(ngModel)]="this.ngClassVar">
+    <label for="ngClass-input">Napište třídu big nebo small!</label>
+    <p [ngClass]="{'big': this.ngClassVar == 'big', 
+                     'small': this.ngClassVar == 'small'}">Tento
+      text je fakt super</p>
+  </section>
+  <code>
+    &#60;input id="ngClass-input" type="text" [(ngModel)]="this.ngClassVar"&#62;<br>
+    <em>...</em><br>
+    &#60;p [ngClass]="&#123;'big': this.ngClassVar == 'big',
+    'small': this.ngClassVar == 'small'&#125;"&#62;Tento text je fakt
+    super&#60;/p&#62;
+  </code>
+</div>
+<h2>ngSwitch</h2>
+<p>ngSwitch funguje podobně jako *ngIf, akorát nám umožní porovnávat hodnotu uloženou v proměnné.
+  Rodičovskému prvku přiřadímě [ngSwitch]="proměnná", kde proměnná je hodnota kterou kontrolujeme. Dále dalším dětem
+  přiřadímě *ngSwitchCase="hodnota", kde hodnota se porovnává s uloženou hodnotou v proměnné. Dále máme
+  možnost přiřadit *ngSwitchDefault, která se ukáže vždy, když "nepropadne" ani jedna z výše uvedených
+  možností.
+</p>
+<div class="splitscreen">
+  <section>
+    <input id="ngSwitch-input" type="text" [(ngModel)]="this.ngSwitchVar">
+    <label for="ngSwitch-input">Napiště číšlo 1 nebo 2</label>
+    <div [ngSwitch]="this.ngSwitchVar">
+      <p *ngSwitchCase="'1'">Zadané číslo je jedna, jupí!</p>
+      <p *ngSwitchCase="'2'">Zadané číslo není jedna, ale dva, super!</p>
+      <p *ngSwitchDefault>Tady asi někdo neumí číst, co(:</p>
+    </div>
+  </section>
+  <code>
+    &#60;input id="ngSwitch-input" type="text" [(ngModel)]="this.ngSwitchVar"&#62;<br>
+    &#60;div [ngSwitch]="this.ngSwitchVar"&#62;<br>
+    &nbsp;&nbsp;&nbsp;&#60;p *ngSwitchCase="'1'"&#62;Zadané číslo je jedna, jupí!&#60;/p&#62;<br>
+    &nbsp;&nbsp;&nbsp;&#60;p *ngSwitchCase="'2'"&#62;Zadané číslo není jedna, ale dva, super!&#60;/p&#62;<br>
+    &nbsp;&nbsp;&nbsp;&#60;p *ngSwitchDefault &#62;Tady asi někdo neumí číst, co(:&#60;/p&#62;<br>
+    &#60;/div&#62;<br>
+    &#60;/section&#62;
+  </code>
+</div>
+<h2>ng-content</h2>
+<p>Tato direktiva přenese obsah mezi závorkami komponentu přímo do struktury.</p>
+<div class="splitscreen">
+  <section>
+    <p>Text ze závorek!</p>
+  </section>
+  <code>
+    &#60;komponent&#62;&#60;p&#62;Text ze závorek!&#60;/p&#62;&#60;/komponent&#62;<br>
+    <em>... Struktura v komponentu ...</em><br>
+    &#60;ng-content&#62;&#60;/ng-content&#62; == "Text ze závorek!"<br>
+  </code>
+</div>
+<h2>router-outlet</h2>
+<p>Toto použijeme zároveň s routingem v Angularu. Do této direktivy se vyrenderuje
+  komponent, na který odkazuje URL adresa. (teď nám to možná nedává smysl, ale po naučení
+  routingu je to velmi důležité)
+</p>
+<div class="splitscreen">
+  <section [ngStyle]="{'width': '70%'}">
+    <p>Komponent!</p>
+  </section>
+  <code>
+    www.template.cz/webpage<br>
+    <em>...</em><br>
+    &#60;router-outlet&#62;&#60;/router-outlet&#62; == komponent, na který odkazuje routing webpage
+  </code>
+</div>

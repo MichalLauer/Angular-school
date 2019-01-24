@@ -1,0 +1,78 @@
+<h2>Routing</h2>
+<p>Routing je <strong>nejmarkantnější</strong> důvod, proč lidé používají Angular. Díky vlastnímu routingu můžeme
+  obnovovat obsah na stránce bez nutnosti refreshování stránky ze serveru (zjednodušeně). Umožnujě nám nastavit vlastní
+  cestu k
+  požadovanému obsahu a je velmi jednoduché obnovovat a měnit komponenty na webové stránce. Díky tomu můžeme tvořit <em>komplikované
+    a zárovň
+    přehledné</em> weobvé aplikace, tzn. single page application.</p>
+<p>Nejprve musíme nastavit základní stránce (většinou <em>index.html</em>) odkaz. To uděláme takto:</p>
+<code>
+  &#60;base href="/"&#62;
+</code>
+<p>Můžeme zde mít zároveň /domecek, což by nám udělalo <em>www.template.cz/domeček</em> landpage stránkou. Zbytek už
+  nastavujeme ve vlastním souboru.</p>
+<h2>Teď už k routingu!</h2>
+<p>V Angular CLI příkazem </p>
+<code>
+  ng generate module app-routing --flat --module=app <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;--flat nám dá routing soubor do src/app <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;--module=app nám zaregistruje routing pod app.module.ts <br>
+</code>
+<p>Ve vygenerovaném souboru musíme provést pár změn. Prve musíme vyvtvořit konstantu, kde cesty budeme registrovat</p>
+<code>
+  const appRoutes: Routes = [
+  &nbsp;&nbsp;&nbsp;&nbsp;<em>...</em>
+  ];
+</code>
+<p>Dále v <strong>@ngModule(&#123;<em>...</em>&#125;)</strong> musíme registrovat import do základního routerovacího
+  modulu</p>
+<code>
+  imports: [ <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;RouterModule.forRoot(appRoutes),<br>
+  ],<br>
+</code>
+<p>Potom jej musíme exportovat</p>
+<code>
+  exports: [ <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;RouterModule <br>
+  ] <br>
+</code>
+<p>A dále už nám stačí cesty registrovat. Výsledně <strong>@ngModule(&#123;<em>...</em>&#125;)</strong> vypadá takto:</p>
+<code>
+  &nbsp;&nbsp;&nbsp;&nbsp;@NgModule(&#123;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;declarations: [],<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;imports: [<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RouterModule.forRoot(appRoutes),<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;],<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;exports: [<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RouterModule<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;]<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&#125;)<br>
+</code>
+<p>Teď už se můžeme vrhnout na nastavování cest!</p>
+<p>Prve si nadefinujeme landpage, neboli stránku, která se otevře jako první</p>
+<code>
+    &#123;path: '', component: LandpageKomponent&#125;,
+</code>
+<p>Ostatní cesty definujeme takto</p>
+<code>
+    &#123;path: 'cesta', component: komponent&#125;,
+</code>
+<p>Dále můžeme cesty vnořovat a tvořit tak "url děti". To znamená, že cesta pro DiteKomponent je teď .cz/rodic/dite</p>
+<code>
+&#123;path: 'rodic', children: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;path: 'dite', component: DiteKomponent&#125;,<br>
+]&#125;,
+</code>
+<p>Také můžeme definovat pagenotfound</p>
+<code>
+    &#123;path: '**', component: PageNotFoundKomponent&#125;
+</code>
+<h2>Použití v HTML odkazech</h2>
+<p>Teď už stačí cesty pouze aktivovat. To uděláme pomocí [routerLink] v odkazech na dané stránky. routerLinku nastavíme pole, kde 
+  bude po částech definovaná cesta
+</p>
+<code>
+    &#60;a [routerLink]="['cesta']" &#62;CestaKomponent&#60;/a&#62;<br>
+    &#60;a [routerLink]="['rodic', 'dite']" &#62;DiteKomponent&#60;/a&#62;
+</code>

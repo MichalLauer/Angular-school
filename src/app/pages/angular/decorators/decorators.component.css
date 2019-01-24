@@ -1,0 +1,6 @@
+.multishow section{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-right: 40px;
+}

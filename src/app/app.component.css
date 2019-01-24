@@ -1,8 +1,15 @@
-main{
-    background: red;
-    height: 100vh !important;    
-}
 
+/* Styling of the page (looks, responsivness...) */
+
+main{
+    height: 100vh !important;
+    overflow: scroll;
+}
+#logo{
+    width: 128px;
+    height: 128px;
+    margin: 20px 0;
+}
 button{
     position: absolute;
     left: 12px;
@@ -26,15 +33,13 @@ button{
 a{
     color: #009688 !important;
     cursor: pointer;
+    font-size: 18px;
 }
-a::after{
-    content: none;
-}
-@media (min-width: 992px) { 
+@media (min-width: 1024px) { 
 
     main{
-        background:yellow;
         transform: translateX(240px) !important;
+        padding-right: 240px;
     }
 
     nav {

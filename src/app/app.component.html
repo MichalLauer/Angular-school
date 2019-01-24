@@ -4,20 +4,25 @@
       <span class="sr-only">Toggle drawer</span>
       <i class="material-icons">menu</i>
     </button>
-    <nav id="nav-list" class="bmd-layout-drawer">
-      <li class="dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown">
-          Intro
+    <nav id="nav-list" class="bmd-layout-drawer ">
+        <a href="https://angular.io/">
+            <img src="../assets/imgs/angular-logo.svg" alt="Angular logo" id="logo" class="img-fluid mx-auto d-block">
         </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" [routerLink]="['0', '0']" >Intro 0.0</a>
-          <a class="dropdown-item" [routerLink]="['0', '1']" >Action 0.1</a>
-        </div>
-      </li>
+        <a (mousedown)="dragOff()" class="nav-link" [routerLink]="['0']" >Představení</a>
+        <a (mousedown)="dragOff()" class="nav-link" [routerLink]="['1']" >NPM &amp; CLI</a>
+        <a (mousedown)="dragOff()" class="nav-link" [routerLink]="['2']" >Visual Studio Code</a>
+        <a (mousedown)="dragOff()" class="nav-link"  [routerLink]="['3']" >TypeScript</a>
+        <a (mousedown)="dragOff()" class="nav-link red"  [routerLink]="['4', '0']" >Manipulace s daty</a>
+        <a (mousedown)="dragOff()" class="nav-link red"  [routerLink]="['4', '1']" >Direktivy</a>
+        <a (mousedown)="dragOff()" class="nav-link red"  [routerLink]="['4', '2']" >Praktické Dekorátory</a>
+        <a (mousedown)="dragOff()" class="nav-link red"  [routerLink]="['4', '3']" >Životní cyklus</a>
+        <a (mousedown)="dragOff()" class="nav-link red"  [routerLink]="['4', '4']" >Routing</a>
+        <a (mousedown)="dragOff()" class="nav-link red"  [routerLink]="['4', '5']" >Deply na server</a>
+        <a (mousedown)="dragOff()" class="nav-link"  [routerLink]="['5']" >O stránce</a>
     </nav>
     <!--main content-->
     <main class="container-fluid">
-      <router-outlet></router-outlet>
+        <router-outlet></router-outlet>
     </main>
   </div>
   

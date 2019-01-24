@@ -1,0 +1,35 @@
+#compilation{
+    display: grid;
+    grid-template-columns: 1fr 300px 1fr;
+    grid-template-rows: 4;
+    grid-template-areas:    "headline headline headline"
+                            "text text text"
+                            ". data-types ."
+                            "js . ts";
+    text-align: center;
+}
+#compilation h2{
+    grid-area: headline;
+}
+#comp-text{
+    grid-area: text;
+}
+#js{
+    grid-area: js;
+    text-align: left;
+}
+#ts{
+    grid-area: ts;
+    text-align: left;
+}
+#data-types{
+    grid-area: data-types;
+}
+#data-types ul{
+    text-align: left;
+}
+#interface p{
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
