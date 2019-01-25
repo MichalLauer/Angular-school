@@ -9,7 +9,9 @@ export class AppComponent {
 
   onMenuClick() {
     event.preventDefault ? event.preventDefault() : event.returnValue = false;
-    document.getElementById('nav-button').click();
+    if (window.innerWidth <= 1024) {
+      setTimeout( () => {document.getElementById('nav-button').click(); }, 200);
+    }
   }
 
 }

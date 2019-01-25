@@ -11,6 +11,7 @@ import { RoutingComponent } from './pages/angular/routing/routing.component';
 import { DeployingComponent } from './pages/angular/deploying/deploying.component';
 import { DirectivesComponent } from './pages/angular/directives/directives.component';
 import { AboutComponent } from './pages/about/about.component';
+import { Error404Component } from './error404/error404.component';
 
 const appRoutes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: '/0'},
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
     {path: '5', component: DeployingComponent},
   ]},
   {path: '5', component: AboutComponent},
+  {path: '**', component: Error404Component}
 ];
 
 @NgModule({

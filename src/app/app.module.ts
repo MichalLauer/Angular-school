@@ -17,6 +17,7 @@ import { InputComponent } from './pages/angular-tests/input/input.component';
 import { OutputComponent } from './pages/angular-tests/output/output.component';
 import { ListenerComponent } from './pages/angular-tests/listener/listener.component';
 import { AboutComponent } from './pages/about/about.component';
+import { Error404Component } from './error404/error404.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AboutComponent } from './pages/about/about.component';
     InputComponent,
     OutputComponent,
     ListenerComponent,
-    AboutComponent
+    AboutComponent,
+    Error404Component
     ],
   imports: [
     BrowserModule,

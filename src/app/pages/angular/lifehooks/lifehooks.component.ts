@@ -14,5 +14,4 @@ export class LifehooksComponent implements OnInit, DoCheck {
   }
   ngOnInit() {
   }
-
 }
