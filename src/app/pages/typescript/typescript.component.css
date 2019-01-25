@@ -1,14 +1,17 @@
 #compilation{
     display: grid;
     grid-template-columns: 1fr 300px 1fr;
-    grid-template-rows: 4;
+    grid-template-rows: 6;
     grid-template-areas:    "headline headline headline"
                             "text text text"
                             ". data-types ."
-                            "js . ts";
+                            ". js ."
+                            ". . ."
+                            ". ts .";
     text-align: center;
 }
 #compilation h2{
+    font-size: 1.8rem;
     grid-area: headline;
 }
 #comp-text{
@@ -16,7 +19,7 @@
 }
 #js{
     grid-area: js;
-    text-align: left;
+    text-align: center;
 }
 #ts{
     grid-area: ts;
@@ -33,3 +36,12 @@
     margin-top: 15px;
     margin-bottom: 0;
 }
+@media (min-width: 768px) { 
+    #compilation{
+        grid-template-rows: 4;
+        grid-template-areas:    "headline headline headline"
+                                "text text text"
+                                ". data-types ."
+                                "js . ts"
+    }
+ }

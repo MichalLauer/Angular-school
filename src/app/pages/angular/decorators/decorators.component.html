@@ -55,11 +55,9 @@
     <app-listener></app-listener>
   </section>
   <code>
-    @HostListener('mouseover') onHover() &#123;<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('text').style.color = 'red';<br>
-    &#125;<br>
-    @HostListener('mouseout') onOut() &#123;<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById('text').style.color = 'black';<br>
+    public num: Number = Math.round(Math.random() * 10);<br>
+    @HostListener('click') onHover() &#123;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;this.num = Math.round(Math.random() * 10);<br>
     &#125;<br>
     <em>...</em><br>
     &#60;app-listener&#62;&#60;/app-listener&#62;<br>

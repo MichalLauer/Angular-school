@@ -1,5 +1,5 @@
-<h1>Základní a nejpraktičtější dekorátory</h1>
-<p>Dekorátory jsou speciální Angular komponenty, které nám pomáhají se
+<h1>Direktivy</h1>
+<p>Direktivy jsou speciální Angular komponenty, které nám pomáhají se
   stylováním, strukturou a zobrazovaním HTML prvků. Dekorátorů je mnoho, ale v
   této sekci si představíme jen ty nejzákladnější. V HTML souboru se píší
   buď v hranatých závorkách ( [direktiva] ) nemění strukturu souboru. Pokud ovšem
@@ -38,24 +38,6 @@
     &#60;ng-template #ngFalse&#62;&#60;p&#62;Vstup rozhodne neni true&#60;/p&#62;&#60;/ng-template&#62;<br>
   </code>
 </div>
-<!--
-<h2>*ngFor</h2>
-<p>Tento cyklus funguje jako Foreach v mnoha programovacích jazycích. Cyklus projede celou sbírku, a uloží
-  jí do proměnné. Syntaxe vypadá takto: "let prvek in sbirka;let i = index". Index je klíčové slovo, které
-  nám vrátí index aktuálního cyklu. Tento parametr <strong>není</strong> povinný.
-</p>
-<div class="splitscreen">
-  <section>
-    <input type="number" ([ngModel])="this.ngForCount">
-    <button (click)="ngForClick()">Klikni, a tolikrát ti ukážu dnešní datum z mojí sbírky!</button>
-    <div *ngFor="let date in this.dates">
-        <p >s</p>
-    </div>
-  </section>
-  <code>
-  </code>
-</div>
--->
 <h2>ngClass</h2>
 <p>Direktiva ngClass prvku přiřadí třídu, pokud je podmínka true. Syntaxí je objekt, kde první prvek je
   název třídy v uvozovkách a za dvojtečkou je podmínka. Více tříd lze oddělit čárkou.

@@ -6,12 +6,13 @@ import { Component, OnInit, HostListener } from '@angular/core';
   styleUrls: ['./listener.component.css']
 })
 export class ListenerComponent implements OnInit {
-  @HostListener('mouseover') onHover() {
-    document.getElementById('text').style.color = 'red';
+
+  public num: Number = Math.round(Math.random() * 10);
+
+  @HostListener('click') onHover() {
+    this.num = Math.round(Math.random() * 10);
   }
-  @HostListener('mouseout') onOut() {
-    document.getElementById('text').style.color = 'black';
-  }
+
   constructor() { }
 
   ngOnInit() {

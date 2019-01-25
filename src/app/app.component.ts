@@ -7,8 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  dragOff() {
+  onMenuClick() {
     event.preventDefault ? event.preventDefault() : event.returnValue = false;
+    document.getElementById('nav-button').click();
   }
 
 }

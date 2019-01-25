@@ -1,24 +1,24 @@
 <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
-    <button type="button" class="btn btn-raised btn-secondary bmd-btn-fab d-block d-lg-none" type="button" data-toggle="drawer"
+    <button id="nav-button" type="button" class="btn btn-raised btn-secondary bmd-btn-fab d-block d-lg-none" type="button" data-toggle="drawer"
       data-target="#nav-list">
       <span class="sr-only">Toggle drawer</span>
       <i class="material-icons">menu</i>
     </button>
-    <nav id="nav-list" class="bmd-layout-drawer ">
+    <nav id="nav-list" class="bmd-layout-drawer">
         <a href="https://angular.io/">
             <img src="assets/imgs/angular-logo.svg" alt="Angular logo" id="logo" class="img-fluid mx-auto d-block">
         </a>
-        <a (mousedown)="dragOff()" class="nav-link" [routerLink]="['0']" >Představení</a>
-        <a (mousedown)="dragOff()" class="nav-link" [routerLink]="['1']" >NPM &amp; CLI</a>
-        <a (mousedown)="dragOff()" class="nav-link" [routerLink]="['2']" >Visual Studio Code</a>
-        <a (mousedown)="dragOff()" class="nav-link"  [routerLink]="['3']" >TypeScript</a>
-        <a (mousedown)="dragOff()" class="nav-link red"  [routerLink]="['4', '0']" >Manipulace s daty</a>
-        <a (mousedown)="dragOff()" class="nav-link red"  [routerLink]="['4', '1']" >Direktivy</a>
-        <a (mousedown)="dragOff()" class="nav-link red"  [routerLink]="['4', '2']" >Praktické Dekorátory</a>
-        <a (mousedown)="dragOff()" class="nav-link red"  [routerLink]="['4', '3']" >Životní cyklus</a>
-        <a (mousedown)="dragOff()" class="nav-link red"  [routerLink]="['4', '4']" >Routing</a>
-        <a (mousedown)="dragOff()" class="nav-link red"  [routerLink]="['4', '5']" >Deply na server</a>
-        <a (mousedown)="dragOff()" class="nav-link"  [routerLink]="['5']" >O stránce</a>
+        <a (mousedown)="onMenuClick()" class="nav-link" [routerLink]="['0']" >Představení</a>
+        <a (mousedown)="onMenuClick()" class="nav-link" [routerLink]="['1']" >NPM &amp; CLI</a>
+        <a (mousedown)="onMenuClick()" class="nav-link" [routerLink]="['2']" >Visual Studio Code</a>
+        <a (mousedown)="onMenuClick()" class="nav-link" [routerLink]="['3']" >TypeScript</a>
+        <a (mousedown)="onMenuClick()" class="nav-link" [routerLink]="['4', '0']" >Manipulace s daty</a>
+        <a (mousedown)="onMenuClick()" class="nav-link" [routerLink]="['4', '1']" >Direktivy</a>
+        <a (mousedown)="onMenuClick()" class="nav-link" [routerLink]="['4', '2']" >Praktické Dekorátory</a>
+        <a (mousedown)="onMenuClick()" class="nav-link" [routerLink]="['4', '3']" >Životní cyklus</a>
+        <a (mousedown)="onMenuClick()" class="nav-link" [routerLink]="['4', '4']" >Routing</a>
+        <a (mousedown)="onMenuClick()" class="nav-link" [routerLink]="['4', '5']" >Deply na server</a>
+        <a (mousedown)="onMenuClick()" class="nav-link" [routerLink]="['5']" >O stránce</a>
     </nav>
     <!--main content-->
     <main class="container-fluid">
