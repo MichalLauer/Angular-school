@@ -18,7 +18,7 @@
   &nbsp;&nbsp;&nbsp;&nbsp;--flat nám dá routing soubor do src/app <br>
   &nbsp;&nbsp;&nbsp;&nbsp;--module=app nám zaregistruje routing pod app.module.ts <br>
 </code>
-<p>Ve vygenerovaném souboru musíme provést pár změn. Prve musíme vyvtvořit konstantu, kde cesty budeme registrovat</p>
+<p>Ve vygenerovaném souboru musíme provést pár změn. Prve musíme vyvtvořit konstantu, kam cesty budeme registrovat</p>
 <code>
   const appRoutes: Routes = [
   &nbsp;&nbsp;&nbsp;&nbsp;<em>...</em>
@@ -28,7 +28,7 @@
   modulu</p>
 <code>
   imports: [ <br>
-  &nbsp;&nbsp;&nbsp;&nbsp;RouterModule.forRoot(appRoutes),<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;RouterModule.forRoot(appRoutes)<br>
   ],<br>
 </code>
 <p>Potom jej musíme exportovat</p>
@@ -61,10 +61,10 @@
 <p>Dále můžeme cesty vnořovat a tvořit tak "url děti". To znamená, že cesta pro DiteKomponent je teď .cz/rodic/dite</p>
 <code>
 &#123;path: 'rodic', children: [<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&#123;path: 'dite', component: DiteKomponent&#125;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#123;path: 'dite', component: DiteKomponent&#125;<br>
 ]&#125;,
 </code>
-<p>Také můžeme definovat pagenotfound</p>
+<p>Také můžeme definovat pagenotfound. Ovšem tuto adresu musíme <strong>vždy</strong> uvést jako poslední.</p>
 <code>
     &#123;path: '**', component: PageNotFoundKomponent&#125;
 </code>
