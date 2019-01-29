@@ -1,11 +1,11 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-listener',
   templateUrl: './listener.component.html',
   styleUrls: ['./listener.component.css']
 })
-export class ListenerComponent implements OnInit {
+export class ListenerComponent {
 
   public num: Number = Math.round(Math.random() * 10);
 
@@ -15,6 +15,4 @@ export class ListenerComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
 }

@@ -1,17 +1,12 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-lifehooks',
   templateUrl: './lifehooks.component.html',
   styleUrls: ['./lifehooks.component.css']
 })
-export class LifehooksComponent implements OnInit, DoCheck {
+export class LifehooksComponent {
 
   constructor() { }
 
-  ngDoCheck() {
-
-  }
-  ngOnInit() {
-  }
 }

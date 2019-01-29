@@ -1,22 +1,17 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ValueTransformer } from '@angular/compiler/src/util';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-output',
   templateUrl: './output.component.html',
   styleUrls: ['./output.component.css']
 })
-export class OutputComponent implements OnInit {
+export class OutputComponent {
   @Output() var = new EventEmitter<String>();
-  // tslint:disable-next-line:no-output-rename
   @Output('alias') outputVar = new EventEmitter<String>();
 
   public value: String;
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   react(sentData: Boolean) {
     if (sentData) {

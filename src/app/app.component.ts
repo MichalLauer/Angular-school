@@ -13,5 +13,4 @@ export class AppComponent {
       setTimeout( () => {document.getElementById('nav-button').click(); }, 200);
     }
   }
-
 }

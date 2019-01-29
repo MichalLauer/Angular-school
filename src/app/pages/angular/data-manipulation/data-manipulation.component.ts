@@ -5,15 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './data-manipulation.component.html',
   styleUrls: ['./data-manipulation.component.css']
 })
-export class DataManipulationComponent implements OnInit {
+export class DataManipulationComponent {
   public interpolation_string: String = 'proměnná';
   public input_backgroundColor = 'white';
   public ngModelVar = 'Přepiš mě!';
   
   constructor() { }
 
-  ngOnInit() {
-  }
   saveInterp() {
     this.interpolation_string = (<HTMLInputElement>document.getElementById('interp-input')).value;
   }

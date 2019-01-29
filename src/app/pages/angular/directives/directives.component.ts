@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-directives',
   templateUrl: './directives.component.html',
   styleUrls: ['./directives.component.css']
 })
-export class DirectivesComponent implements OnInit {
+export class DirectivesComponent {
   
   public ngIfVar: String = 'false';
 
@@ -18,8 +18,6 @@ export class DirectivesComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
   ngForClick() {
     this.dates[0] = '1';
     for (let i = 0; i < this.ngForCount; i++) {
