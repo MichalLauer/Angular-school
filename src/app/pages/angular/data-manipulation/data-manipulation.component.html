@@ -2,7 +2,8 @@
 <h2>Dvojitý závorky jako vnoření</h2>
 <p>První věc kterou se naučíme, je vlkádání (neboli interpolace) textu přímo do HTML. Pokud máme v TypeScriptu uloženou
   nějakou hodnotu,
-  kterou lze zkonvertovat, tak ji můžeme ukazovat na HTML stránce přímo pomocí &#123;&#123;<strong>{{interpolation_string}}</strong>&#125;&#125;. Níže uvidíte názorný příklad.</p>
+  kterou lze zkonvertovat, tak ji můžeme ukazovat na HTML stránce přímo pomocí &#123;&#123;<strong>{{interpolation_string}}</strong>&#125;&#125;.
+  Níže uvidíte názorný příklad.</p>
 <div class="splitscreen">
   <section>
     <input id="interp-input" type="text" value="Jen to zkus">
@@ -14,7 +15,8 @@
   </code>
 </div>
 <h2>Bindování proměnné</h2>
-<p>Tak jak můžeme ukazovat informace na stránce, tak můžeme nastavovat informace objektům z dokumentu. Pomocí syntaxe [vlastnost]="ts" se dají měnít vlastností objektů.</p>
+<p>Tak jak můžeme ukazovat informace na stránce, tak můžeme nastavovat informace objektům z dokumentu. Pomocí syntaxe
+  [vlastnost]="ts" se dají měnít vlastností objektů.</p>
 <div class="splitscreen">
   <section>
     <input id="div-color" type="text" [style.backgroundColor]="this.input_backgroundColor" [value]="this.input_backgroundColor">
@@ -29,8 +31,10 @@
   </code>
 </div>
 <h2>Event Binding</h2>
-<p>Díky Angularu můžeme elegantně reagovat na události prvku. Syntaxe je velmi jednoduchá - názvy eventů jsou stejné jako v Javascriptu, akorát se odstraní předpona "on".
-  Takže z <em>onclick</em> se stane <em>click</em>, <em>onmouseover</em> se stane <em>mouseover</em> atp. Toto klíčové slovo se zabalí do kulatých závorek a za rovnítko se píše Typescript.
+<p>Díky Angularu můžeme elegantně reagovat na události prvku. Syntaxe je velmi jednoduchá - názvy eventů jsou stejné
+  jako v Javascriptu, akorát se odstraní předpona "on".
+  Takže z <em>onclick</em> se stane <em>click</em>, <em>onmouseover</em> se stane <em>mouseover</em> atp. Toto klíčové
+  slovo se zabalí do kulatých závorek a za rovnítko se píše Typescript.</p>
 <div class="splitscreen">
   <section>
     <button (click)="updateEventColor('red');">Červená</button>
@@ -39,23 +43,24 @@
     <div id="event-div">placeholder div</div>
   </section>
   <code>
-      &#60;button (click)="updateEventColor('red');"&#62;Červená&#60;/button&#62; <br>
-      &#60;button (click)="updateEventColor('green');"&#62;Zelená&#60;/button&#62;<br>
-      <em>...</em><br>
-      (&#60;HTMLInputElement&#62;document.getElementById('event-div')).style.backgroundColor = color;<br>
+    &#60;button (click)="updateEventColor('red');"&#62;Červená&#60;/button&#62; <br>
+    &#60;button (click)="updateEventColor('green');"&#62;Zelená&#60;/button&#62;<br>
+    <em>...</em><br>
+    (&#60;HTMLInputElement&#62;document.getElementById('event-div')).style.backgroundColor = color;<br>
   </code>
 </div>
 <h2>Two-way data binding</h2>
-<p>Použítím jednoduchého zápisu lze data ukládat vždy, pokud se na HTML dokumentu změní nebo aktualizují. Používá se k tomu direktiva [(ngModel)] oplácaná kulatými
+<p>Použítím jednoduchého zápisu lze data ukládat vždy, pokud se na HTML dokumentu změní nebo aktualizují. Používá se
+  k tomu direktiva [(ngModel)] oplácaná kulatými
   a hranatými závorkami. Za rovnítko dáme název proměnné, kam se má hodnota uložit.
 </p>
 <div class="splitscreen">
-    <section>
-      <input type="text" [(ngModel)]="this.ngModelVar">
-      <p>{{ngModelVar}}</p>
-    </section>
-    <code>
-        &#60;input type="text" [(ngModel)]="this.ngModelVar"&#62;<br>
-        &#60;p&#62;  &#123; &#123; ngModelVar &#125; &#125;  &#60;/p&#62;
-    </code>
-  </div
+  <section>
+    <input type="text" [(ngModel)]="this.ngModelVar">
+    <p>{{ngModelVar}}</p>
+  </section>
+  <code>
+    &#60;input type="text" &#91;&#40;ngModel&#41;&#93;="this.ngModelVar"&#62;<br>
+    &#60;p&#62; &#123; &#123; ngModelVar &#125; &#125; &#60;/p&#62;
+  </code>
+</div>
